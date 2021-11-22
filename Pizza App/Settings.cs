@@ -12,7 +12,7 @@ namespace Pizza_App
 {
     public partial class Settings : Form
     {
-        public  List<Toppings> pizzaToppings = new List<Toppings>();
+        public List<Toppings> pizzaToppings = new List<Toppings>();
         public List<Size> pizzaSize = new List<Size>();
 
         public Settings()
@@ -21,7 +21,15 @@ namespace Pizza_App
             initializeIng();
             initializeSize();
         }
+        public Settings(List<Toppings> toppings,List<Size> sizes)
+        {
+            InitializeComponent();
+            initializeIng();
+            initializeSize();
 
+            pizzaToppings = toppings;
+            pizzaSize = sizes;
+        }
         private void initializeSize()
         {
             pizzaSize.Add(new Size("Small", 5.50,2));
@@ -41,7 +49,16 @@ namespace Pizza_App
         {
             IngreedientsDataGridView.DataSource = new BindingList<Toppings>(pizzaToppings);
             SizeDataGridView.DataSource = new BindingList<Size>(pizzaSize);
+        }
 
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SaveButtonSize_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

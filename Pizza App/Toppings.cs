@@ -21,5 +21,9 @@ namespace Pizza_App
             name = Name;
             price = Price;
         }
+        public Toppings()
+        {
+
+        }
     }
 }

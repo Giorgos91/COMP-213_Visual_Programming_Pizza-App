@@ -26,7 +26,7 @@ namespace Pizza_App
             price = Price;
             freeIng = FreeIng;
         }
-
+        public Size() { }
     }
 
 }

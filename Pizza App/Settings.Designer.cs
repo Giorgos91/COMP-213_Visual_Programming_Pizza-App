@@ -32,10 +32,12 @@ namespace Pizza_App
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.sizeTabPage = new System.Windows.Forms.TabPage();
+            this.closeButtonSize = new System.Windows.Forms.Button();
             this.SizeDataGridView = new System.Windows.Forms.DataGridView();
             this.ResetButtonSize = new System.Windows.Forms.Button();
             this.SaveButtonSize = new System.Windows.Forms.Button();
             this.IngreedientsTabPage = new System.Windows.Forms.TabPage();
+            this.closeButonIng = new System.Windows.Forms.Button();
             this.IngreedientsDataGridView = new System.Windows.Forms.DataGridView();
             this.ResetButtonIng = new System.Windows.Forms.Button();
             this.SaveButtonIng = new System.Windows.Forms.Button();
@@ -61,6 +63,7 @@ namespace Pizza_App
             // sizeTabPage
             // 
             this.sizeTabPage.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.sizeTabPage.Controls.Add(this.closeButtonSize);
             this.sizeTabPage.Controls.Add(this.SizeDataGridView);
             this.sizeTabPage.Controls.Add(this.ResetButtonSize);
             this.sizeTabPage.Controls.Add(this.SaveButtonSize);
@@ -71,14 +74,25 @@ namespace Pizza_App
             this.sizeTabPage.TabIndex = 1;
             this.sizeTabPage.Text = "Size";
             // 
+            // closeButtonSize
+            // 
+            this.closeButtonSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButtonSize.Location = new System.Drawing.Point(441, 201);
+            this.closeButtonSize.Name = "closeButtonSize";
+            this.closeButtonSize.Size = new System.Drawing.Size(90, 37);
+            this.closeButtonSize.TabIndex = 6;
+            this.closeButtonSize.Text = "&Close";
+            this.closeButtonSize.UseVisualStyleBackColor = true;
+            this.closeButtonSize.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // SizeDataGridView
             // 
-            this.SizeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SizeDataGridView.ColumnHeadersHeight = 29;
             this.SizeDataGridView.Location = new System.Drawing.Point(19, 24);
             this.SizeDataGridView.Name = "SizeDataGridView";
             this.SizeDataGridView.RowHeadersWidth = 51;
             this.SizeDataGridView.RowTemplate.Height = 24;
-            this.SizeDataGridView.Size = new System.Drawing.Size(397, 370);
+            this.SizeDataGridView.Size = new System.Drawing.Size(416, 370);
             this.SizeDataGridView.TabIndex = 5;
             // 
             // ResetButtonSize
@@ -86,7 +100,7 @@ namespace Pizza_App
             this.ResetButtonSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetButtonSize.Location = new System.Drawing.Point(441, 348);
             this.ResetButtonSize.Name = "ResetButtonSize";
-            this.ResetButtonSize.Size = new System.Drawing.Size(90, 31);
+            this.ResetButtonSize.Size = new System.Drawing.Size(90, 37);
             this.ResetButtonSize.TabIndex = 4;
             this.ResetButtonSize.Text = "&Reset";
             this.ResetButtonSize.UseVisualStyleBackColor = true;
@@ -100,10 +114,12 @@ namespace Pizza_App
             this.SaveButtonSize.TabIndex = 3;
             this.SaveButtonSize.Text = "&Save";
             this.SaveButtonSize.UseVisualStyleBackColor = true;
+            this.SaveButtonSize.Click += new System.EventHandler(this.SaveButtonSize_Click);
             // 
             // IngreedientsTabPage
             // 
             this.IngreedientsTabPage.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.IngreedientsTabPage.Controls.Add(this.closeButonIng);
             this.IngreedientsTabPage.Controls.Add(this.IngreedientsDataGridView);
             this.IngreedientsTabPage.Controls.Add(this.ResetButtonIng);
             this.IngreedientsTabPage.Controls.Add(this.SaveButtonIng);
@@ -114,14 +130,25 @@ namespace Pizza_App
             this.IngreedientsTabPage.TabIndex = 2;
             this.IngreedientsTabPage.Text = "Ingreedients";
             // 
+            // closeButonIng
+            // 
+            this.closeButonIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButonIng.Location = new System.Drawing.Point(442, 193);
+            this.closeButonIng.Name = "closeButonIng";
+            this.closeButonIng.Size = new System.Drawing.Size(90, 37);
+            this.closeButonIng.TabIndex = 7;
+            this.closeButonIng.Text = "&Close";
+            this.closeButonIng.UseVisualStyleBackColor = true;
+            this.closeButonIng.Click += new System.EventHandler(this.closeButton_Click);
+            // 
             // IngreedientsDataGridView
             // 
-            this.IngreedientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.IngreedientsDataGridView.ColumnHeadersHeight = 29;
             this.IngreedientsDataGridView.Location = new System.Drawing.Point(19, 24);
             this.IngreedientsDataGridView.Name = "IngreedientsDataGridView";
             this.IngreedientsDataGridView.RowHeadersWidth = 51;
             this.IngreedientsDataGridView.RowTemplate.Height = 24;
-            this.IngreedientsDataGridView.Size = new System.Drawing.Size(397, 370);
+            this.IngreedientsDataGridView.Size = new System.Drawing.Size(417, 370);
             this.IngreedientsDataGridView.TabIndex = 2;
             // 
             // ResetButtonIng
@@ -174,5 +201,7 @@ namespace Pizza_App
         private System.Windows.Forms.DataGridView SizeDataGridView;
         private System.Windows.Forms.Button ResetButtonSize;
         private System.Windows.Forms.Button SaveButtonSize;
+        private System.Windows.Forms.Button closeButtonSize;
+        private System.Windows.Forms.Button closeButonIng;
     }
 }
