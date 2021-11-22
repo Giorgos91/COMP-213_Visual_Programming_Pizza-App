@@ -34,24 +34,24 @@ namespace Pizza_App
             this.sizeTabPage = new System.Windows.Forms.TabPage();
             this.closeButtonSize = new System.Windows.Forms.Button();
             this.SizeDataGridView = new System.Windows.Forms.DataGridView();
-            this.ResetButtonSize = new System.Windows.Forms.Button();
-            this.SaveButtonSize = new System.Windows.Forms.Button();
-            this.IngreedientsTabPage = new System.Windows.Forms.TabPage();
+            this.resetButtonSize = new System.Windows.Forms.Button();
+            this.saveButtonSize = new System.Windows.Forms.Button();
+            this.toppingsTabPage = new System.Windows.Forms.TabPage();
             this.closeButonIng = new System.Windows.Forms.Button();
-            this.IngreedientsDataGridView = new System.Windows.Forms.DataGridView();
-            this.ResetButtonIng = new System.Windows.Forms.Button();
-            this.SaveButtonIng = new System.Windows.Forms.Button();
+            this.toppingsDataGridView = new System.Windows.Forms.DataGridView();
+            this.resetButtonIng = new System.Windows.Forms.Button();
+            this.saveButtonIng = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
             this.sizeTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SizeDataGridView)).BeginInit();
-            this.IngreedientsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IngreedientsDataGridView)).BeginInit();
+            this.toppingsTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toppingsDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainTabControl
             // 
             this.mainTabControl.Controls.Add(this.sizeTabPage);
-            this.mainTabControl.Controls.Add(this.IngreedientsTabPage);
+            this.mainTabControl.Controls.Add(this.toppingsTabPage);
             this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
@@ -65,8 +65,8 @@ namespace Pizza_App
             this.sizeTabPage.BackColor = System.Drawing.SystemColors.ControlLight;
             this.sizeTabPage.Controls.Add(this.closeButtonSize);
             this.sizeTabPage.Controls.Add(this.SizeDataGridView);
-            this.sizeTabPage.Controls.Add(this.ResetButtonSize);
-            this.sizeTabPage.Controls.Add(this.SaveButtonSize);
+            this.sizeTabPage.Controls.Add(this.resetButtonSize);
+            this.sizeTabPage.Controls.Add(this.saveButtonSize);
             this.sizeTabPage.Location = new System.Drawing.Point(4, 29);
             this.sizeTabPage.Name = "sizeTabPage";
             this.sizeTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -95,40 +95,41 @@ namespace Pizza_App
             this.SizeDataGridView.Size = new System.Drawing.Size(416, 370);
             this.SizeDataGridView.TabIndex = 5;
             // 
-            // ResetButtonSize
+            // resetButtonSize
             // 
-            this.ResetButtonSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetButtonSize.Location = new System.Drawing.Point(441, 348);
-            this.ResetButtonSize.Name = "ResetButtonSize";
-            this.ResetButtonSize.Size = new System.Drawing.Size(90, 37);
-            this.ResetButtonSize.TabIndex = 4;
-            this.ResetButtonSize.Text = "&Reset";
-            this.ResetButtonSize.UseVisualStyleBackColor = true;
+            this.resetButtonSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetButtonSize.Location = new System.Drawing.Point(441, 348);
+            this.resetButtonSize.Name = "resetButtonSize";
+            this.resetButtonSize.Size = new System.Drawing.Size(90, 37);
+            this.resetButtonSize.TabIndex = 4;
+            this.resetButtonSize.Text = "&Reset";
+            this.resetButtonSize.UseVisualStyleBackColor = true;
+            this.resetButtonSize.Click += new System.EventHandler(this.ResetButton_Click);
             // 
-            // SaveButtonSize
+            // saveButtonSize
             // 
-            this.SaveButtonSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButtonSize.Location = new System.Drawing.Point(441, 271);
-            this.SaveButtonSize.Name = "SaveButtonSize";
-            this.SaveButtonSize.Size = new System.Drawing.Size(90, 37);
-            this.SaveButtonSize.TabIndex = 3;
-            this.SaveButtonSize.Text = "&Save";
-            this.SaveButtonSize.UseVisualStyleBackColor = true;
-            this.SaveButtonSize.Click += new System.EventHandler(this.SaveButtonSize_Click);
+            this.saveButtonSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButtonSize.Location = new System.Drawing.Point(441, 271);
+            this.saveButtonSize.Name = "saveButtonSize";
+            this.saveButtonSize.Size = new System.Drawing.Size(90, 37);
+            this.saveButtonSize.TabIndex = 3;
+            this.saveButtonSize.Text = "&Save";
+            this.saveButtonSize.UseVisualStyleBackColor = true;
+            this.saveButtonSize.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // IngreedientsTabPage
+            // toppingsTabPage
             // 
-            this.IngreedientsTabPage.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.IngreedientsTabPage.Controls.Add(this.closeButonIng);
-            this.IngreedientsTabPage.Controls.Add(this.IngreedientsDataGridView);
-            this.IngreedientsTabPage.Controls.Add(this.ResetButtonIng);
-            this.IngreedientsTabPage.Controls.Add(this.SaveButtonIng);
-            this.IngreedientsTabPage.Location = new System.Drawing.Point(4, 29);
-            this.IngreedientsTabPage.Name = "IngreedientsTabPage";
-            this.IngreedientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.IngreedientsTabPage.Size = new System.Drawing.Size(549, 413);
-            this.IngreedientsTabPage.TabIndex = 2;
-            this.IngreedientsTabPage.Text = "Ingreedients";
+            this.toppingsTabPage.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.toppingsTabPage.Controls.Add(this.closeButonIng);
+            this.toppingsTabPage.Controls.Add(this.toppingsDataGridView);
+            this.toppingsTabPage.Controls.Add(this.resetButtonIng);
+            this.toppingsTabPage.Controls.Add(this.saveButtonIng);
+            this.toppingsTabPage.Location = new System.Drawing.Point(4, 29);
+            this.toppingsTabPage.Name = "toppingsTabPage";
+            this.toppingsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.toppingsTabPage.Size = new System.Drawing.Size(549, 413);
+            this.toppingsTabPage.TabIndex = 2;
+            this.toppingsTabPage.Text = "Toppings";
             // 
             // closeButonIng
             // 
@@ -141,35 +142,37 @@ namespace Pizza_App
             this.closeButonIng.UseVisualStyleBackColor = true;
             this.closeButonIng.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // IngreedientsDataGridView
+            // toppingsDataGridView
             // 
-            this.IngreedientsDataGridView.ColumnHeadersHeight = 29;
-            this.IngreedientsDataGridView.Location = new System.Drawing.Point(19, 24);
-            this.IngreedientsDataGridView.Name = "IngreedientsDataGridView";
-            this.IngreedientsDataGridView.RowHeadersWidth = 51;
-            this.IngreedientsDataGridView.RowTemplate.Height = 24;
-            this.IngreedientsDataGridView.Size = new System.Drawing.Size(417, 370);
-            this.IngreedientsDataGridView.TabIndex = 2;
+            this.toppingsDataGridView.ColumnHeadersHeight = 29;
+            this.toppingsDataGridView.Location = new System.Drawing.Point(19, 24);
+            this.toppingsDataGridView.Name = "toppingsDataGridView";
+            this.toppingsDataGridView.RowHeadersWidth = 51;
+            this.toppingsDataGridView.RowTemplate.Height = 24;
+            this.toppingsDataGridView.Size = new System.Drawing.Size(417, 370);
+            this.toppingsDataGridView.TabIndex = 2;
             // 
-            // ResetButtonIng
+            // resetButtonIng
             // 
-            this.ResetButtonIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetButtonIng.Location = new System.Drawing.Point(442, 346);
-            this.ResetButtonIng.Name = "ResetButtonIng";
-            this.ResetButtonIng.Size = new System.Drawing.Size(90, 31);
-            this.ResetButtonIng.TabIndex = 1;
-            this.ResetButtonIng.Text = "&Reset";
-            this.ResetButtonIng.UseVisualStyleBackColor = true;
+            this.resetButtonIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetButtonIng.Location = new System.Drawing.Point(442, 346);
+            this.resetButtonIng.Name = "resetButtonIng";
+            this.resetButtonIng.Size = new System.Drawing.Size(90, 31);
+            this.resetButtonIng.TabIndex = 1;
+            this.resetButtonIng.Text = "&Reset";
+            this.resetButtonIng.UseVisualStyleBackColor = true;
+            this.resetButtonIng.Click += new System.EventHandler(this.ResetButton_Click);
             // 
-            // SaveButtonIng
+            // saveButtonIng
             // 
-            this.SaveButtonIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButtonIng.Location = new System.Drawing.Point(442, 269);
-            this.SaveButtonIng.Name = "SaveButtonIng";
-            this.SaveButtonIng.Size = new System.Drawing.Size(90, 37);
-            this.SaveButtonIng.TabIndex = 0;
-            this.SaveButtonIng.Text = "&Save";
-            this.SaveButtonIng.UseVisualStyleBackColor = true;
+            this.saveButtonIng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButtonIng.Location = new System.Drawing.Point(442, 269);
+            this.saveButtonIng.Name = "saveButtonIng";
+            this.saveButtonIng.Size = new System.Drawing.Size(90, 37);
+            this.saveButtonIng.TabIndex = 0;
+            this.saveButtonIng.Text = "&Save";
+            this.saveButtonIng.UseVisualStyleBackColor = true;
+            this.saveButtonIng.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // Settings
             // 
@@ -184,8 +187,8 @@ namespace Pizza_App
             this.mainTabControl.ResumeLayout(false);
             this.sizeTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SizeDataGridView)).EndInit();
-            this.IngreedientsTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.IngreedientsDataGridView)).EndInit();
+            this.toppingsTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toppingsDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,13 +197,13 @@ namespace Pizza_App
 
         private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage sizeTabPage;
-        private System.Windows.Forms.TabPage IngreedientsTabPage;
-        private System.Windows.Forms.DataGridView IngreedientsDataGridView;
-        private System.Windows.Forms.Button ResetButtonIng;
-        private System.Windows.Forms.Button SaveButtonIng;
+        private System.Windows.Forms.TabPage toppingsTabPage;
+        private System.Windows.Forms.DataGridView toppingsDataGridView;
+        private System.Windows.Forms.Button resetButtonIng;
+        private System.Windows.Forms.Button saveButtonIng;
         private System.Windows.Forms.DataGridView SizeDataGridView;
-        private System.Windows.Forms.Button ResetButtonSize;
-        private System.Windows.Forms.Button SaveButtonSize;
+        private System.Windows.Forms.Button resetButtonSize;
+        private System.Windows.Forms.Button saveButtonSize;
         private System.Windows.Forms.Button closeButtonSize;
         private System.Windows.Forms.Button closeButonIng;
     }

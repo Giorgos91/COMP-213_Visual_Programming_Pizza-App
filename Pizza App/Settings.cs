@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Pizza_App
 {
@@ -14,6 +15,9 @@ namespace Pizza_App
     {
         public List<Toppings> pizzaToppings = new List<Toppings>();
         public List<Size> pizzaSize = new List<Size>();
+
+        const string pizzaSizeFile = "PizzaSizeFile_json";
+        const string pizzaToppingsFile = "PizzaToppingsFile_json";
 
         public Settings()
         {
@@ -47,7 +51,7 @@ namespace Pizza_App
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            IngreedientsDataGridView.DataSource = new BindingList<Toppings>(pizzaToppings);
+            toppingsDataGridView.DataSource = new BindingList<Toppings>(pizzaToppings);
             SizeDataGridView.DataSource = new BindingList<Size>(pizzaSize);
         }
 
@@ -56,9 +60,53 @@ namespace Pizza_App
             this.Close();
         }
 
-        private void SaveButtonSize_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            
+            if (sender== saveButtonSize)
+            {
+                var jsonSize = JsonConvert.SerializeObject(pizzaSize);
+                System.IO.File.WriteAllText(pizzaSizeFile, jsonSize, Encoding.UTF8);
+                MessageBox.Show("Successfully saved the Pizza Sizes.", "Success", MessageBoxButtons.OK);
+            }
+            else
+            {
+                var jsonToppings= JsonConvert.SerializeObject(pizzaToppings);
+                System.IO.File.WriteAllText(pizzaToppingsFile, jsonToppings, Encoding.UTF8);
+                MessageBox.Show("Successfully saved the Pizza Sizes.", "Success", MessageBoxButtons.OK);
+            }
+        }
+
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            if (sender == resetButtonSize)
+            {
+                if (System.IO.File.Exists(pizzaSizeFile))
+                {
+                    var jsonString = System.IO.File.ReadAllText(pizzaSizeFile);
+                    pizzaSize = JsonConvert.DeserializeObject<List<Size>>(jsonString);
+                }
+                else
+                {
+                    pizzaSize.Clear();
+
+                    SizeDataGridView.DataSource = new BindingList<Size>(pizzaSize);
+                }
+
+            }
+            else
+            {
+                if (System.IO.File.Exists(pizzaToppingsFile))
+                {
+                    var jsonString = System.IO.File.ReadAllText(pizzaToppingsFile);
+                    pizzaToppings = JsonConvert.DeserializeObject<List<Toppings>>(jsonString);
+                }
+                else
+                {
+                    pizzaToppings.Clear();
+
+                    toppingsDataGridView.DataSource = new BindingList<Toppings>(pizzaToppings);
+                }
+            }
         }
     }
 }

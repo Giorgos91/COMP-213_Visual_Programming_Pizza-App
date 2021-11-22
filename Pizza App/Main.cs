@@ -13,7 +13,7 @@ namespace Pizza_App
     public partial class MainForm : Form
     {
         
-        private const double IngredientsPrice = 0.75;
+        
 
         Settings settings = new Settings();
 
@@ -71,10 +71,11 @@ namespace Pizza_App
 
             if (Count > numofIng)
             {
+                ExtraIngCost =  top.price;
                 different = Count - numofIng;
                 if (different > 0)
                 {
-                    ExtraIngCost = different * IngredientsPrice;
+                    ExtraIngCost = different * top.price;
                 }
                 totalCost = BasicCost + ExtraIngCost;
             }
@@ -110,6 +111,7 @@ namespace Pizza_App
         private void ClearButton_Click(object sender, EventArgs e)
         {
             Display();
+            Count = 0;
             IngredientsGroupBox.Enabled = false;
             FreeTextBox.Text = "";         
             TotalCostTextBox.Text = "";
