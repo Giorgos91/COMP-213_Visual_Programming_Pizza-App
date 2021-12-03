@@ -25,15 +25,7 @@ namespace Pizza_App
             initializeIng();
             initializeSize();
         }
-        public Settings(List<Toppings> toppings,List<Size> sizes)
-        {
-            InitializeComponent();
-            initializeIng();
-            initializeSize();
-
-            pizzaToppings = toppings;
-            pizzaSize = sizes;
-        }
+       
         private void initializeSize()
         {
             pizzaSize.Add(new Size("Small", 5.50,2));
@@ -44,9 +36,9 @@ namespace Pizza_App
 
         public void initializeIng()
         {
-            pizzaToppings.Add(new Toppings("Mushroom", 0.75));
-            pizzaToppings.Add(new Toppings("Pepper", 1.25));
-            pizzaToppings.Add(new Toppings("Onion", 1));
+            pizzaToppings.Add(new Toppings("Mushroom"));
+            pizzaToppings.Add(new Toppings("Pepper"));
+            pizzaToppings.Add(new Toppings("Onion"));
         }
 
         private void Settings_Load(object sender, EventArgs e)
@@ -88,10 +80,8 @@ namespace Pizza_App
                 else
                 {
                     pizzaSize.Clear();
-
-                    SizeDataGridView.DataSource = new BindingList<Size>(pizzaSize);
                 }
-
+                SizeDataGridView.DataSource = new BindingList<Size>(pizzaSize);
             }
             else
             {
@@ -103,9 +93,8 @@ namespace Pizza_App
                 else
                 {
                     pizzaToppings.Clear();
-
-                    toppingsDataGridView.DataSource = new BindingList<Toppings>(pizzaToppings);
                 }
+                toppingsDataGridView.DataSource = new BindingList<Toppings>(pizzaToppings);
             }
         }
     }

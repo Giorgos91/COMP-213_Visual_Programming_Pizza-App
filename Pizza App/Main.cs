@@ -12,12 +12,7 @@ namespace Pizza_App
 {
     public partial class MainForm : Form
     {
-        
-        
-
         Settings settings = new Settings();
-
-       
 
         int Count=0, numofIng, different;
         double totalCost = 0.0, BasicCost =0.0;
@@ -25,22 +20,31 @@ namespace Pizza_App
         public MainForm()
         {
             InitializeComponent();
-            Display(); 
+            DisplayToppings();
+            DisplaySize();
         }
-
-        private void Display()
+        /*<sumary>
+           The DisplaySize(), filling the flaw layout panel withe the size of the pizzas.
+        </sumary>*/
+       
+        private void DisplaySize()
         {
             sizeFlowLayoutPanel.Controls.Clear();
-            ingFlowLayoutPanel.Controls.Clear();
             foreach (var size in settings.pizzaSize)
             {
                 RadioButton radioButton = new RadioButton();
                 radioButton.Text = size.name;
-                radioButton.Tag = size;                
+                radioButton.Tag = size;
                 radioButton.CheckedChanged += RadioButton_CheckedChanged;
                 sizeFlowLayoutPanel.Controls.Add(radioButton);
             }
-          
+        }
+        /*<sumary>
+          The DisplayToppings(), filling the flaw layout panel withe the toppings of the pizzas.
+       </sumary>*/
+        private void DisplayToppings()
+        {
+            ingFlowLayoutPanel.Controls.Clear();          
             foreach (var toppings in settings.pizzaToppings)
             {
                 CheckBox checkBox = new CheckBox();
@@ -49,13 +53,11 @@ namespace Pizza_App
                 checkBox.CheckedChanged += CheckBox_CheckedChanged;
                 ingFlowLayoutPanel.Controls.Add(checkBox);
             }
-
         }
 
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var checkBox = (sender as CheckBox);
-            var top = checkBox.Tag as Toppings;
             double ExtraIngCost = 0.0;
 
             
@@ -68,14 +70,13 @@ namespace Pizza_App
                 Count--;
             }
 
-
+            
             if (Count > numofIng)
             {
-                ExtraIngCost =  top.price;
                 different = Count - numofIng;
                 if (different > 0)
                 {
-                    ExtraIngCost = different * top.price;
+                    ExtraIngCost = different * 0.75;
                 }
                 totalCost = BasicCost + ExtraIngCost;
             }
@@ -84,7 +85,7 @@ namespace Pizza_App
                 totalCost = BasicCost;
             }
 
-            TotalCostTextBox.Text = totalCost.ToString("C");
+            TotalCostTextBox.Text = $"€ {totalCost.ToString()}";
 
         }
 
@@ -95,7 +96,7 @@ namespace Pizza_App
             numofIng = size.freeIng;
             BasicCost = size.price;
             totalCost = BasicCost;
-            TotalCostTextBox.Text = totalCost.ToString("C");
+            TotalCostTextBox.Text = $"€ {totalCost.ToString()}";
             FreeTextBox.Text = size.freeIng.ToString();
             totalCost = BasicCost;
             OrderButton.Visible = true;
@@ -105,12 +106,14 @@ namespace Pizza_App
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settings.ShowDialog();
-            Display();
+            DisplaySize();
+            DisplayToppings();
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            Display();
+            DisplaySize();
+            DisplayToppings();
             Count = 0;
             IngredientsGroupBox.Enabled = false;
             FreeTextBox.Text = "";         

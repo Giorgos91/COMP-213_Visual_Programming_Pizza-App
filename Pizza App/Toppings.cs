@@ -13,13 +13,9 @@ namespace Pizza_App
         [JsonProperty("name")]
         public string name { get; set; }
 
-        [JsonProperty("price")]
-        public double price { get; set; }
-
-        public Toppings(string Name, double Price)
+        public Toppings(string Name)
         {
-            name = Name;
-            price = Price;
+            name = Name;           
         }
         public Toppings()
         {

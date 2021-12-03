@@ -21,10 +21,7 @@ namespace Pizza_App
         {
             if (usernameTxt.Text== "admin" && passwordTxt.Text == "admin")
             {
-                SplashScreenForm splashForm = new SplashScreenForm();
-                splashForm.ShowDialog();
                 this.Close();
-                
             }
             else
             {

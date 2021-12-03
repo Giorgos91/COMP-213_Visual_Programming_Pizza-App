@@ -16,10 +16,10 @@ namespace Pizza_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           
-            Login login = new Login();
-            login.ShowDialog();
+
             
+            Application.Run(new SplashScreenForm());
+            Application.Run(new Login());
             Application.Run(new MainForm());
             
         }
