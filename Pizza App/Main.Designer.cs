@@ -47,8 +47,10 @@ namespace Pizza_App
             this.TimeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CurrentTimeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.SettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.userToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SizeGroupBox.SuspendLayout();
             this.IngredientsGroupBox.SuspendLayout();
@@ -75,7 +77,7 @@ namespace Pizza_App
             this.SizeGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SizeGroupBox.Location = new System.Drawing.Point(53, 95);
             this.SizeGroupBox.Name = "SizeGroupBox";
-            this.SizeGroupBox.Size = new System.Drawing.Size(390, 172);
+            this.SizeGroupBox.Size = new System.Drawing.Size(413, 172);
             this.SizeGroupBox.TabIndex = 2;
             this.SizeGroupBox.TabStop = false;
             this.SizeGroupBox.Text = "Size";
@@ -93,7 +95,7 @@ namespace Pizza_App
             // 
             this.FreeTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
             this.FreeTextBox.ForeColor = System.Drawing.Color.Red;
-            this.FreeTextBox.Location = new System.Drawing.Point(267, 91);
+            this.FreeTextBox.Location = new System.Drawing.Point(301, 87);
             this.FreeTextBox.Name = "FreeTextBox";
             this.FreeTextBox.ReadOnly = true;
             this.FreeTextBox.Size = new System.Drawing.Size(91, 27);
@@ -102,7 +104,7 @@ namespace Pizza_App
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(263, 68);
+            this.label5.Location = new System.Drawing.Point(297, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 20);
             this.label5.TabIndex = 6;
@@ -125,7 +127,7 @@ namespace Pizza_App
             this.IngredientsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IngredientsGroupBox.Location = new System.Drawing.Point(59, 289);
             this.IngredientsGroupBox.Name = "IngredientsGroupBox";
-            this.IngredientsGroupBox.Size = new System.Drawing.Size(384, 173);
+            this.IngredientsGroupBox.Size = new System.Drawing.Size(407, 173);
             this.IngredientsGroupBox.TabIndex = 3;
             this.IngredientsGroupBox.TabStop = false;
             this.IngredientsGroupBox.Text = "Ingredients";
@@ -135,7 +137,7 @@ namespace Pizza_App
             this.ingFlowLayoutPanel.AutoScroll = true;
             this.ingFlowLayoutPanel.Location = new System.Drawing.Point(10, 67);
             this.ingFlowLayoutPanel.Name = "ingFlowLayoutPanel";
-            this.ingFlowLayoutPanel.Size = new System.Drawing.Size(345, 106);
+            this.ingFlowLayoutPanel.Size = new System.Drawing.Size(376, 106);
             this.ingFlowLayoutPanel.TabIndex = 4;
             // 
             // label4
@@ -239,24 +241,40 @@ namespace Pizza_App
             this.CurrentTimeMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CurrentTimeMaskedTextBox.ValidatingType = typeof(System.DateTime);
             // 
-            // SettingsToolStripMenuItem
+            // settingsToolStrip
             // 
-            this.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem";
-            this.SettingsToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
-            this.SettingsToolStripMenuItem.Text = "SETTINGS";
-            this.SettingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
+            this.settingsToolStrip.Name = "settingsToolStrip";
+            this.settingsToolStrip.Size = new System.Drawing.Size(88, 24);
+            this.settingsToolStrip.Text = "SETTINGS";
+            this.settingsToolStrip.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SettingsToolStripMenuItem});
+            this.settingsToolStrip,
+            this.userToolStrip,
+            this.aboutToolStrip});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // userToolStrip
+            // 
+            this.userToolStrip.Name = "userToolStrip";
+            this.userToolStrip.Size = new System.Drawing.Size(58, 24);
+            this.userToolStrip.Text = "USER";
+            this.userToolStrip.Click += new System.EventHandler(this.userToolStrip_Click);
+            // 
+            // aboutToolStrip
+            // 
+            this.aboutToolStrip.Name = "aboutToolStrip";
+            this.aboutToolStrip.Size = new System.Drawing.Size(71, 24);
+            this.aboutToolStrip.Text = "ABOUT";
+            this.aboutToolStrip.Click += new System.EventHandler(this.aboutToolStrip_Click);
             // 
             // pictureBox1
             // 
@@ -324,10 +342,12 @@ namespace Pizza_App
         private System.Windows.Forms.MaskedTextBox TimeMaskedTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox CurrentTimeMaskedTextBox;
-        private System.Windows.Forms.ToolStripMenuItem SettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStrip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.FlowLayoutPanel sizeFlowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel ingFlowLayoutPanel;
+        private System.Windows.Forms.ToolStripMenuItem userToolStrip;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStrip;
     }
 }
 

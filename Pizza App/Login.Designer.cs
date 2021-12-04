@@ -101,7 +101,7 @@ namespace Pizza_App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 368);
+            this.ClientSize = new System.Drawing.Size(381, 368);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);

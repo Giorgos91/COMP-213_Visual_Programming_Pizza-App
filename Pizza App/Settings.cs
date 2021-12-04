@@ -36,9 +36,9 @@ namespace Pizza_App
 
         public void initializeIng()
         {
-            pizzaToppings.Add(new Toppings("Mushroom"));
-            pizzaToppings.Add(new Toppings("Pepper"));
-            pizzaToppings.Add(new Toppings("Onion"));
+            pizzaToppings.Add(new Toppings("Mushroom",0.70));
+            pizzaToppings.Add(new Toppings("Pepper",0.90));
+            pizzaToppings.Add(new Toppings("Onion",0.50));
         }
 
         private void Settings_Load(object sender, EventArgs e)

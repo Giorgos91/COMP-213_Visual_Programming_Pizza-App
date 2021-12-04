@@ -13,20 +13,25 @@ namespace Pizza_App
     public partial class MainForm : Form
     {
         Settings settings = new Settings();
+        user_Form userForm = new user_Form();
+        User curent= new User();
+        
 
         int Count=0, numofIng, different;
         double totalCost = 0.0, BasicCost =0.0;
        
-        public MainForm()
+        public MainForm(User users)
         {
+            curent.Copy(users);
+            
             InitializeComponent();
+            AccessDisplay();
             DisplayToppings();
-            DisplaySize();
+            DisplaySize();            
         }
         /*<sumary>
            The DisplaySize(), filling the flaw layout panel withe the size of the pizzas.
         </sumary>*/
-       
         private void DisplaySize()
         {
             sizeFlowLayoutPanel.Controls.Clear();
@@ -48,19 +53,28 @@ namespace Pizza_App
             foreach (var toppings in settings.pizzaToppings)
             {
                 CheckBox checkBox = new CheckBox();
-                checkBox.Text = toppings.name;
+                checkBox.Text = $"{toppings.name} €{toppings.price}";
                 checkBox.Tag = toppings;
                 checkBox.CheckedChanged += CheckBox_CheckedChanged;
                 ingFlowLayoutPanel.Controls.Add(checkBox);
             }
         }
-
+        private void AccessDisplay()
+        {
+            if (curent.access == User.accessible.any)
+            {
+                userToolStrip.Visible = false;
+                settingsToolStrip.Visible = false;
+            }
+            else if (curent.access == User.accessible.some)
+            {
+                userToolStrip.Visible = false;
+            }
+        }
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             var checkBox = (sender as CheckBox);
             double ExtraIngCost = 0.0;
-
-            
             if (checkBox.Checked == true)
             {
                 Count++;
@@ -68,9 +82,7 @@ namespace Pizza_App
             else if (checkBox.Checked == false)
             {
                 Count--;
-            }
-
-            
+            }            
             if (Count > numofIng)
             {
                 different = Count - numofIng;
@@ -84,7 +96,6 @@ namespace Pizza_App
             {
                 totalCost = BasicCost;
             }
-
             TotalCostTextBox.Text = $"€ {totalCost.ToString()}";
 
         }
@@ -110,6 +121,18 @@ namespace Pizza_App
             DisplayToppings();
         }
 
+        private void aboutToolStrip_Click(object sender, EventArgs e)
+        {
+            AboutBox box = new AboutBox();
+            box.Show();
+        }
+
+        private void userToolStrip_Click(object sender, EventArgs e)
+        {
+            userForm.ShowDialog();
+
+        }
+        
         private void ClearButton_Click(object sender, EventArgs e)
         {
             DisplaySize();

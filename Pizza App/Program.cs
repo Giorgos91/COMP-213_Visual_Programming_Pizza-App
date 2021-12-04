@@ -8,6 +8,8 @@ namespace Pizza_App
 {
     static class Program
     {
+        public enum accessible { any, some,all };
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,11 +18,10 @@ namespace Pizza_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             
             Application.Run(new SplashScreenForm());
             Application.Run(new Login());
-            Application.Run(new MainForm());
+            
             
         }
     }
